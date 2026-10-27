@@ -36,7 +36,7 @@ app.use('/api/grievances', grievanceRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/demo', demoRoutes);
 
-// Health check endpoint for Cloud Run and monitoring
+// Health check endpoint for Cloud Run / Vercel / monitoring
 app.get('/api/health', (req, res) => {
   const storage = StorageAdapter.getStorageStatus();
   res.json({
@@ -52,29 +52,30 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Production: serve built static client files
-const clientDistPath = path.join(__dirname, '../client/dist');
-const fs = require('fs');
-if (fs.existsSync(clientDistPath)) {
-  app.use(express.static(clientDistPath));
-  app.get('*', (req, res) => {
-    // Avoid hijacking non-GET API requests
-    if (req.path.startsWith('/api/')) {
-      return res.status(404).json({ error: 'Endpoint not found' });
-    }
-    res.sendFile(path.join(clientDistPath, 'index.html'));
-  });
-} else {
-  // Helpful fallback in dev mode if direct browser navigates to root
-  app.get('/', (req, res) => {
-    res.json({
-      message: 'FairWork AI Backend API is active.',
-      healthCheck: '/api/health',
-      sectors: '/api/sectors',
-      workers: '/api/workers',
-      note: 'Frontend dev server runs at http://localhost:5173 or run "npm run build" to produce production client.'
+// In non-Vercel environments: serve built static client files
+// Vercel handles static file serving separately via outputDirectory in vercel.json
+if (process.env.VERCEL !== '1') {
+  const clientDistPath = path.join(__dirname, '../client/dist');
+  const fs = require('fs');
+  if (fs.existsSync(clientDistPath)) {
+    app.use(express.static(clientDistPath));
+    app.get('*', (req, res) => {
+      if (req.path.startsWith('/api/')) {
+        return res.status(404).json({ error: 'Endpoint not found' });
+      }
+      res.sendFile(path.join(clientDistPath, 'index.html'));
     });
-  });
+  } else {
+    app.get('/', (req, res) => {
+      res.json({
+        message: 'FairWork AI Backend API is active.',
+        healthCheck: '/api/health',
+        sectors: '/api/sectors',
+        workers: '/api/workers',
+        note: 'Frontend dev server runs at http://localhost:5173 or run "npm run build" to produce production client.'
+      });
+    });
+  }
 }
 
 // Global error handler
@@ -87,8 +88,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start listening
-if (process.env.NODE_ENV !== 'test') {
+// Start listening only when running directly (not on Vercel / test)
+if (process.env.NODE_ENV !== 'test' && process.env.VERCEL !== '1') {
   app.listen(PORT, () => {
     console.log(`=======================================================`);
     console.log(`  FairWork AI Backend active on port: ${PORT}`);
