@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
@@ -18,15 +17,13 @@ const demoRoutes = require('./routes/demoRoutes');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Security and middleware
-app.use(helmet({
-  contentSecurityPolicy: false // Allow Vite assets & styles in demo/production
-}));
+// Middleware
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// API Routes
+// API Routes — all prefixed /api/* (Vercel rewrites send full path)
 app.use('/api/sectors', sectorRoutes);
 app.use('/api/workers', workerRoutes);
 app.use('/api/shifts', shiftRoutes);
@@ -36,7 +33,7 @@ app.use('/api/grievances', grievanceRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/demo', demoRoutes);
 
-// Health check endpoint for Cloud Run / Vercel / monitoring
+// Health check
 app.get('/api/health', (req, res) => {
   const storage = StorageAdapter.getStorageStatus();
   res.json({
@@ -52,28 +49,16 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// In non-Vercel environments: serve built static client files
-// Vercel handles static file serving separately via outputDirectory in vercel.json
-if (process.env.VERCEL !== '1') {
-  const clientDistPath = path.join(__dirname, '../client/dist');
+// Static file serving — only when running locally (not Vercel services)
+if (!process.env.VERCEL) {
+  const path = require('path');
   const fs = require('fs');
+  const clientDistPath = path.join(__dirname, '../client/dist');
   if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
     app.get('*', (req, res) => {
-      if (req.path.startsWith('/api/')) {
-        return res.status(404).json({ error: 'Endpoint not found' });
-      }
+      if (req.path.startsWith('/api/')) return res.status(404).json({ error: 'Not found' });
       res.sendFile(path.join(clientDistPath, 'index.html'));
-    });
-  } else {
-    app.get('/', (req, res) => {
-      res.json({
-        message: 'FairWork AI Backend API is active.',
-        healthCheck: '/api/health',
-        sectors: '/api/sectors',
-        workers: '/api/workers',
-        note: 'Frontend dev server runs at http://localhost:5173 or run "npm run build" to produce production client.'
-      });
     });
   }
 }
@@ -83,17 +68,16 @@ app.use((err, req, res, next) => {
   console.error('[FairWork AI Error]:', err.stack);
   res.status(500).json({
     success: false,
-    message: 'An internal server error occurred',
+    message: 'Internal server error',
     error: process.env.NODE_ENV === 'production' ? null : err.message
   });
 });
 
-// Start listening only when running directly (not on Vercel / test)
-if (process.env.NODE_ENV !== 'test' && process.env.VERCEL !== '1') {
+// Start server when running directly (local / Cloud Run) — not on Vercel
+if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
     console.log(`=======================================================`);
     console.log(`  FairWork AI Backend active on port: ${PORT}`);
-    console.log(`  Cloud Run ready: listening on process.env.PORT || 8080`);
     console.log(`  Storage Mode: ${StorageAdapter.getStorageStatus().label}`);
     console.log(`=======================================================`);
   });
