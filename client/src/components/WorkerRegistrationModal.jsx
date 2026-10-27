@@ -134,10 +134,8 @@ export default function WorkerRegistrationModal({ onClose, onWorkerCreated, sect
                 onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
                 className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none capitalize bg-white"
               >
-                <option value="construction">🏗️ Construction</option>
-                <option value="healthcare">🏥 Healthcare (Hospitals)</option>
-                <option value="education">🏫 Education (Colleges/Schools)</option>
-                <option value="manufacturing">🏭 Manufacturing (Factories)</option>
+                <option value="construction">🏗️ Construction & Civil Works</option>
+                <option value="healthcare">🏥 Healthcare (Hospitals & Facilities)</option>
               </select>
             </div>
           </div>

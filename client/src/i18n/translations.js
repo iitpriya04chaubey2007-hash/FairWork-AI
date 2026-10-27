@@ -1,4 +1,4 @@
-// Multilingual Dictionary for FairWork AI
+// Multilingual Dictionary for FairWork AI (Focused exclusively on 2 Sectors: Construction & Healthcare)
 // Supporting English, Hindi, Tamil, Telugu, Bengali, Kannada, Marathi, Spanish
 
 export const SUPPORTED_LANGUAGES = [
@@ -20,11 +20,9 @@ export const translations = {
     resetDemo: 'Reset Demo Data',
     switchPersona: 'Quick Persona',
     sectors: {
-      all: 'All Sectors',
-      construction: 'Construction',
-      healthcare: 'Healthcare',
-      education: 'Education',
-      manufacturing: 'Manufacturing'
+      all: 'All Sectors (2)',
+      construction: 'Construction & Civil Works',
+      healthcare: 'Hospitals & Healthcare'
     },
     nav: {
       overview: 'Overview',
@@ -109,11 +107,9 @@ export const translations = {
     resetDemo: 'डेमो डेटा रीसेट करें',
     switchPersona: 'डेमो उपयोगकर्ता बदलें',
     sectors: {
-      all: 'सभी क्षेत्र',
+      all: 'सभी क्षेत्र (2)',
       construction: 'निर्माण (कंस्ट्रक्शन)',
-      healthcare: 'स्वास्थ्य सेवा (अस्पताल)',
-      education: 'शिक्षा (कॉलेज / स्कूल)',
-      manufacturing: 'विनिर्माण (फैक्ट्री)'
+      healthcare: 'स्वास्थ्य सेवा (अस्पताल)'
     },
     nav: {
       overview: 'अवलोकन',
@@ -198,11 +194,9 @@ export const translations = {
     resetDemo: 'டெமோ தரவை மீட்டமை',
     switchPersona: 'பயனரை மாற்றுக',
     sectors: {
-      all: 'அனைத்து துறைகள்',
+      all: 'அனைத்து துறைகள் (2)',
       construction: 'கட்டுமானம்',
-      healthcare: 'மருத்துவமனை',
-      education: 'கல்விக்கூடங்கள்',
-      manufacturing: 'தொழிற்சாலைகள்'
+      healthcare: 'மருத்துவமனை'
     },
     nav: {
       overview: 'கண்ணோட்டம்',
@@ -287,11 +281,9 @@ export const translations = {
     resetDemo: 'డేటాను రీసెట్ చేయండి',
     switchPersona: 'వినియోగదారుని మార్చండి',
     sectors: {
-      all: 'అన్ని రంగాలు',
+      all: 'అన్ని రంగాలు (2)',
       construction: 'భవన నిర్మాణం',
-      healthcare: 'ఆరోగ్య సంరక్షణ',
-      education: 'విద్యా సంస్థలు',
-      manufacturing: 'కర్మాగారాలు'
+      healthcare: 'ఆరోగ్య సంరక్షణ'
     },
     nav: {
       overview: 'అవలోకనం',
@@ -376,11 +368,9 @@ export const translations = {
     resetDemo: 'ডেমো ডেটা রিসেট করুন',
     switchPersona: 'ব্যবহারকারী পরিবর্তন করুন',
     sectors: {
-      all: 'সব সেক্টর',
+      all: 'সব সেক্টর (২)',
       construction: 'নির্মাণ শিল্প',
-      healthcare: 'স্বাস্থ্যসেবা (হাসপাতাল)',
-      education: 'শিক্ষা প্রতিষ্ঠান',
-      manufacturing: 'কারখানা ও শিল্প'
+      healthcare: 'স্বাস্থ্যসেবা (হাসপাতাল)'
     },
     nav: {
       overview: 'সারসংক্ষেপ',
@@ -465,11 +455,9 @@ export const translations = {
     resetDemo: 'ಡೆಮೊ ಮರುಹೊಂದಿಸಿ',
     switchPersona: 'ಬಳಕೆದಾರರನ್ನು ಬದಲಾಯಿಸಿ',
     sectors: {
-      all: 'ಎಲ್ಲಾ ವಲಯಗಳು',
+      all: 'ಎಲ್ಲಾ ವಲಯಗಳು (2)',
       construction: 'ಕಟ್ಟಡ ನಿರ್ಮಾಣ',
-      healthcare: 'ಆರೋಗ್ಯ ಸೇವೆ',
-      education: 'ಶಿಕ್ಷಣ ಸಂಸ್ಥೆಗಳು',
-      manufacturing: 'ಕಾರ್ಖಾನೆಗಳು'
+      healthcare: 'ಆರೋಗ್ಯ ಸೇವೆ'
     },
     nav: {
       overview: 'ಅವಲೋಕನ',
@@ -554,11 +542,9 @@ export const translations = {
     resetDemo: 'डेटा रीसेट करा',
     switchPersona: 'वापरकर्ता बदला',
     sectors: {
-      all: 'सर्व क्षेत्रे',
+      all: 'सर्व क्षेत्रे (2)',
       construction: 'बांधकाम',
-      healthcare: 'आरोग्य सेवा',
-      education: 'शैक्षणिक संस्था',
-      manufacturing: 'कारखाने / मॅन्युفॅक्चरिंग'
+      healthcare: 'आरोग्य सेवा'
     },
     nav: {
       overview: 'आढावा',
@@ -643,11 +629,9 @@ export const translations = {
     resetDemo: 'Restablecer Datos Demo',
     switchPersona: 'Cambiar Persona',
     sectors: {
-      all: 'Todos los Sectores',
+      all: 'Todos los Sectores (2)',
       construction: 'Construcción',
-      healthcare: 'Salud y Hospitales',
-      education: 'Educación',
-      manufacturing: 'Fábricas y Manufactura'
+      healthcare: 'Salud y Hospitales'
     },
     nav: {
       overview: 'Inicio',

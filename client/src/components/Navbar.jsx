@@ -46,9 +46,7 @@ export default function Navbar({
   const sectorList = [
     { id: 'all', label: t.sectors.all, icon: Layers },
     { id: 'construction', label: t.sectors.construction, icon: HardHat },
-    { id: 'healthcare', label: t.sectors.healthcare, icon: Stethoscope },
-    { id: 'education', label: t.sectors.education, icon: GraduationCap },
-    { id: 'manufacturing', label: t.sectors.manufacturing, icon: Factory }
+    { id: 'healthcare', label: t.sectors.healthcare, icon: Stethoscope }
   ];
 
   return (

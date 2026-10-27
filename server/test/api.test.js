@@ -49,14 +49,13 @@ test('API: Health Check returns healthy status and Cloud Run config', async () =
   assert.ok(data.storageMode);
 });
 
-test('API: Sectors endpoint returns all 4 required sectors with metadata', async () => {
+test('API: Sectors endpoint returns both focused sectors with metadata', async () => {
   const { status, data } = await api('/api/sectors');
   assert.strictEqual(status, 200);
   assert.strictEqual(data.success, true);
+  assert.strictEqual(data.sectors.length, 2);
   assert.ok(data.sectors.includes('construction'));
   assert.ok(data.sectors.includes('healthcare'));
-  assert.ok(data.sectors.includes('education'));
-  assert.ok(data.sectors.includes('manufacturing'));
   assert.strictEqual(data.metadata.construction.hazardMultiplier, 1.25);
   assert.strictEqual(data.metadata.healthcare.hazardMultiplier, 1.20);
 });
@@ -74,8 +73,8 @@ test('API: Workers endpoint lists workers and filters by sector', async () => {
 test('API: Worker Registration creates new worker with digital passport', async () => {
   const payload = {
     name: 'Dev Test Worker',
-    sector: 'manufacturing',
-    trade: 'CNC Milling',
+    sector: 'construction',
+    trade: 'Scaffolding Inspector',
     experienceYears: 4,
     phone: '+91 99999 88888',
     dailyBaseRate: 850

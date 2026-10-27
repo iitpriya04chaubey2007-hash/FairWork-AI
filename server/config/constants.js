@@ -1,10 +1,8 @@
-// Configuration and constants for FairWork AI
+// Configuration and constants for FairWork AI (Focused exclusively on 2 Sectors: Construction & Healthcare)
 
 const SECTORS = {
   CONSTRUCTION: 'construction',
-  HEALTHCARE: 'healthcare',
-  EDUCATION: 'education',
-  MANUFACTURING: 'manufacturing'
+  HEALTHCARE: 'healthcare'
 };
 
 const SECTOR_METADATA = {
@@ -16,7 +14,7 @@ const SECTOR_METADATA = {
     standardDailyHours: 8,
     hazardMultiplier: 1.25, // +25% hazard allowance
     mandatoryPPE: ['Hard Hat', 'Steel-toe Boots', 'High-Vis Vest', 'Safety Harness (High Alt)'],
-    highRiskTrades: ['Scaffolding', 'Welding', 'Crane Rigging', 'Deep Trenching']
+    highRiskTrades: ['Scaffolding & Rigging', 'Master Masonry', 'Structural Welding', 'Rebar Detailing']
   },
   [SECTORS.HEALTHCARE]: {
     id: 'healthcare',
@@ -25,28 +23,8 @@ const SECTOR_METADATA = {
     color: 'teal',
     standardDailyHours: 8,
     hazardMultiplier: 1.20, // +20% biohazard allowance
-    mandatoryPPE: ['Medical Scrubs', 'N95 Respirator', 'Biohazard Gloves', 'Face Shield'],
-    highRiskTrades: ['Bio-waste Disposal', 'Sanitation Staff', 'Orderly Patient Transfer', 'Isolation Ward Maintenance']
-  },
-  [SECTORS.EDUCATION]: {
-    id: 'education',
-    name: 'Colleges & Educational Campuses',
-    icon: 'GraduationCap',
-    color: 'indigo',
-    standardDailyHours: 8,
-    hazardMultiplier: 1.05, // +5% chemical/heavy equipment allowance
-    mandatoryPPE: ['Work Gloves', 'Slip-resistant Shoes', 'Safety Goggles'],
-    highRiskTrades: ['Chemical Lab Caretaking', 'Groundskeeping / Heavy Mower', 'High-voltage Maintenance']
-  },
-  [SECTORS.MANUFACTURING]: {
-    id: 'manufacturing',
-    name: 'Factories & Industrial Manufacturing',
-    icon: 'Factory',
-    color: 'blue',
-    standardDailyHours: 8,
-    hazardMultiplier: 1.20, // +20% machinery/heat allowance
-    mandatoryPPE: ['Ear Defenders', 'Cut-resistant Gloves', 'Steel-toe Shoes', 'Eye Protection'],
-    highRiskTrades: ['Sheet Metal Stamping', 'Smelter Tending', 'Chemical Mixing', 'Forklift Operations']
+    mandatoryPPE: ['Medical Scrubs', 'N95 Respirator', 'Biohazard Gloves', 'Face Visor'],
+    highRiskTrades: ['Biohazard Sanitization', 'Orderly Patient Transit', 'Central Laundry Disinfection', 'Ward Bio-spill Turnover']
   }
 };
 

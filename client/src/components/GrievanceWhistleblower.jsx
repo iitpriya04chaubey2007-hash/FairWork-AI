@@ -218,10 +218,8 @@ export default function GrievanceWhistleblower({
                   onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
                   className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none capitalize bg-white"
                 >
-                  <option value="construction">Construction</option>
-                  <option value="healthcare">Healthcare</option>
-                  <option value="education">Education</option>
-                  <option value="manufacturing">Manufacturing</option>
+                  <option value="construction">Construction & Civil Works</option>
+                  <option value="healthcare">Hospitals & Healthcare</option>
                 </select>
               </div>
 

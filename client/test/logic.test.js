@@ -11,8 +11,6 @@ test('i18n: Supports all 8 required regional languages', () => {
     assert.ok(translations[code].appName, `appName must exist for ${code}`);
     assert.ok(translations[code].sectors.construction, `construction translation must exist for ${code}`);
     assert.ok(translations[code].sectors.healthcare, `healthcare translation must exist for ${code}`);
-    assert.ok(translations[code].sectors.education, `education translation must exist for ${code}`);
-    assert.ok(translations[code].sectors.manufacturing, `manufacturing translation must exist for ${code}`);
   });
 });
 

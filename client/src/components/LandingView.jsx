@@ -32,8 +32,8 @@ export default function LandingView({
       icon: HardHat,
       color: 'border-amber-500/40 bg-amber-50/50',
       tagColor: 'bg-amber-100 text-amber-900',
-      description: 'Protects scaffolders, masons, and riggers. Monitors fall hazards, extreme heat stress, and applies +25% hazard allowance.',
-      workersCount: 4,
+      description: 'Protects scaffolders, masons, and riggers. Monitors fall hazards, high-elevation safety harness compliance, and applies +25% statutory hazard allowance.',
+      workersCount: 5,
       hazard: '+25% Hazard Pay'
     },
     {
@@ -42,29 +42,9 @@ export default function LandingView({
       icon: Stethoscope,
       color: 'border-teal-500/40 bg-teal-50/50',
       tagColor: 'bg-teal-100 text-teal-900',
-      description: 'Supports sanitation teams, biohazard handlers, and ward orderlies. Enforces infection control PPE and night shift fatigue limits.',
-      workersCount: 4,
+      description: 'Supports sanitation teams, biohazard handlers, and ward orderlies. Enforces infection control PPE, sterile disposal, and applies +20% biohazard pay.',
+      workersCount: 5,
       hazard: '+20% Biohazard Pay'
-    },
-    {
-      id: 'education',
-      name: 'Colleges & Educational Campuses',
-      icon: GraduationCap,
-      color: 'border-indigo-500/40 bg-indigo-50/50',
-      tagColor: 'bg-indigo-100 text-indigo-900',
-      description: 'Covers campus groundskeepers, chemical lab custodians, and facility maintenance with transparent daily attendance and fair pay.',
-      workersCount: 4,
-      hazard: '+5% Chemical/Tool Pay'
-    },
-    {
-      id: 'manufacturing',
-      name: 'Factories & Industrial Plants',
-      icon: Factory,
-      color: 'border-blue-500/40 bg-blue-50/50',
-      tagColor: 'bg-blue-100 text-blue-900',
-      description: 'Guards heavy press operators, CNC machinists, and forklift drivers. Enforces Lockout-Tagout protocols and 10h overtime caps.',
-      workersCount: 4,
-      hazard: '+20% Machinery Pay'
     }
   ];
 
@@ -108,8 +88,8 @@ export default function LandingView({
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-            A comprehensive, multi-sector platform empowering manual workers and employers across 
-            <strong> Construction, Healthcare, Education, and Manufacturing</strong> with portable skill passports, 
+            A dedicated platform empowering manual workers and employers across 
+            <strong> Construction & Civil Works</strong> and <strong>Hospitals & Healthcare Facilities</strong> with portable skill passports, 
             transparent wage audits, and rule-based fatigue prevention.
           </p>
 

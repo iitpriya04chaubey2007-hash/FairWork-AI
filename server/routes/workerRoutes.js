@@ -51,8 +51,8 @@ router.post('/', async (req, res) => {
     if (!name || !name.trim()) {
       return res.status(400).json({ success: false, message: 'Worker name is required.' });
     }
-    if (!sector) {
-      return res.status(400).json({ success: false, message: 'Work sector is required.' });
+    if (!sector || !['construction', 'healthcare'].includes(sector.toLowerCase())) {
+      return res.status(400).json({ success: false, message: 'Work sector must be either construction or healthcare.' });
     }
     if (!trade || !trade.trim()) {
       return res.status(400).json({ success: false, message: 'Primary trade / skill is required.' });

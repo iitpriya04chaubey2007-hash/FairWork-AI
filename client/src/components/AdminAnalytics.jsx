@@ -124,8 +124,6 @@ export default function AdminAnalytics({
                     <span className="font-bold text-slate-800 capitalize flex items-center gap-1.5">
                       {sec.sector === 'construction' && <HardHat className="w-3.5 h-3.5 text-amber-600" />}
                       {sec.sector === 'healthcare' && <Stethoscope className="w-3.5 h-3.5 text-teal-600" />}
-                      {sec.sector === 'education' && <GraduationCap className="w-3.5 h-3.5 text-indigo-600" />}
-                      {sec.sector === 'manufacturing' && <Factory className="w-3.5 h-3.5 text-blue-600" />}
                       <span>{sec.sector}</span>
                     </span>
                     <span className="font-mono text-slate-600">
