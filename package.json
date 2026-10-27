@@ -1,0 +1,25 @@
+{
+  "name": "fairwork-ai",
+  "version": "1.0.0",
+  "description": "FairWork AI - Manual Workforce Management for Fair, Safe, and Transparent Labor",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "node server/index.js",
+    "server:dev": "node --watch server/index.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js",
+    "test:server": "npm --prefix server test",
+    "test:client": "npm --prefix client test",
+    "test": "node scripts/run-all-tests.js"
+  },
+  "keywords": [
+    "workforce-management",
+    "fair-wages",
+    "safety",
+    "hackathon",
+    "cloud-run"
+  ],
+  "author": "FairWork AI Team",
+  "license": "MIT"
+}
